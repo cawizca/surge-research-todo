@@ -13,7 +13,7 @@ const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 export const walletConnect: any = createAsyncThunk(
   'wallet/connect',
   async () => {
-    if (window.ethereum === 'undefined') {
+    if (window.ethereum === undefined) {
       await AlertBox('warning', 'Install MetaMask!');
     }
     const accounts = await window.ethereum.request({
@@ -34,8 +34,8 @@ export const walletConnect: any = createAsyncThunk(
 export const checkConnectivity: any = createAsyncThunk(
   'wallet/check',
   async () => {
-    if (window.ethereum === 'undefined') {
-      await AlertBox('warning', 'Install MetaMask!');
+    if (window.ethereum === undefined) {
+      //await AlertBox('warning', 'Install MetaMask!');
     }
     const accounts = await window.ethereum.request({
       method: 'eth_accounts',

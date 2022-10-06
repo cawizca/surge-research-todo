@@ -10,6 +10,7 @@ import metamask_logo from '../img/metamask-seeklogo.com.svg';
 import DialogBox from '../components/DialogBox';
 import Animation from '../components/Animation';
 import NetworkAni from '../components/NetworkAni';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 const AllTodos = () => {
   const dispatch = useDispatch();
@@ -32,8 +33,6 @@ const AllTodos = () => {
     setTodoId(id);
     setTodo(todo);
   };
-
-  console.log(entities.network);
 
   useEffect(() => {
     checkWallet().then((data) => {
@@ -90,6 +89,19 @@ const AllTodos = () => {
                 Please choose <span className="font-medium">Goerli</span>{' '}
                 network and reload the page.
               </p>
+              <div className="mt-3">
+                <button
+                  onClick={() => {
+                    window.location.reload();
+                  }}
+                  className="bg-violet-500 px-6 py-2 rounded-lg transition ease-in-out text-white drop-shadow-lg font-mediu hover:drop-shadow-lg duration-500 hover:scale-105"
+                >
+                  <span className="flex flex-wrap items-center">
+                    <ArrowPathIcon className="h-5 w-5 text-white mr-1" />
+                    <p>Reload</p>
+                  </span>
+                </button>
+              </div>
             </div>
           ) : (
             <div className="w-96">
